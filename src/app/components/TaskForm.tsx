@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { Plus, X } from 'lucide-react';
-import { Task } from '@/types/task';
+import { Task } from '../types/task';
 
 interface TaskFormProps {
   onSubmit: (task: { title: string; description: string; priority: Task['priority'] }) => void;

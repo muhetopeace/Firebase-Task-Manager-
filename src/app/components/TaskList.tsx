@@ -1,6 +1,6 @@
 'use client';
 import { CheckCircle2, Circle, Trash2, Edit } from 'lucide-react';
-import { Task } from '@/types/task';
+import { Task } from '../types/task';
 
 interface TaskListProps {
   tasks: Task[];
