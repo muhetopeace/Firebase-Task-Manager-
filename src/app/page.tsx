@@ -19,19 +19,21 @@ function DashboardPage() {
   useEffect(() => {
     loadTasks();
   }, [user]);
+const loadTasks = async () => {
+  if (user?.email) {
+    console.log('Fetching tasks for email:', user.email); // ← ADD THIS
 
-  const loadTasks = async () => {
-    if (user?.email) {
-      try {
-        const userTasks = await getTasks(user.email);
-        setTasks(userTasks);
-      } catch (error) {
-        console.error('Error loading tasks:', error);
-      } finally {
-        setLoading(false);
-      }
+    try {
+      const userTasks = await getTasks(user.email);
+      console.log('Firestore returned:', userTasks); // ← ADD THIS
+      setTasks(userTasks);
+    } catch (error) {
+      console.error('Error loading tasks:', error);
+    } finally {
+      setLoading(false);
     }
-  };
+  }
+};
 
   const handleAddOrUpdateTask = async (taskData: { title: string; description: string; priority: Task['priority'] }) => {
     try {
@@ -106,7 +108,7 @@ function DashboardPage() {
             </div>
             <button
               onClick={handleLogout}
-              className="flex items-center space-x-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition duration-200"
+              className="flex items-center space-x-2 px-4 py-2 bg-gray-400 hover:bg-gray-200 rounded-lg transition duration-200"
             >
               <LogOut className="w-4 h-4" />
               <span className="font-medium">Logout</span>
@@ -138,7 +140,7 @@ function DashboardPage() {
             </div>
 
             <TaskList
-              tasks={tasks}
+              userTasks={tasks}
               onToggleComplete={handleToggleComplete}
               onEdit={setEditingTask}
               onDelete={handleDeleteTask}

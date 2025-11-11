@@ -42,7 +42,7 @@ export default function TaskForm({ onSubmit, editingTask, onCancelEdit }: TaskFo
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 sticky top-8">
+    <div className="bg-white rounded-xl shadow-lg p-6 sticky top-8 ">
       <h2 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
         <Plus className="w-5 h-5 mr-2" />
         {editingTask ? 'Edit Task' : 'New Task'}
@@ -57,7 +57,7 @@ export default function TaskForm({ onSubmit, editingTask, onCancelEdit }: TaskFo
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none"
+            className="w-full  text-black px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none"
             placeholder="Task title"
           />
         </div>
@@ -69,7 +69,7 @@ export default function TaskForm({ onSubmit, editingTask, onCancelEdit }: TaskFo
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none resize-none"
+            className="w-full px-4  text-black py-2 border border-gray-500 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none resize-none"
             rows={3}
             placeholder="Task details"
           />
@@ -82,7 +82,7 @@ export default function TaskForm({ onSubmit, editingTask, onCancelEdit }: TaskFo
           <select
             value={priority}
             onChange={(e) => setPriority(e.target.value as Task['priority'])}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none"
+            className="w-full  text-black  px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none"
           >
             <option value="Low">Low</option>
             <option value="Medium">Medium</option>

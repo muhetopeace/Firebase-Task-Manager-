@@ -3,13 +3,13 @@ import { CheckCircle2, Circle, Trash2, Edit } from 'lucide-react';
 import { Task } from '../types/task';
 
 interface TaskListProps {
-  tasks: Task[];
+  userTasks: Task[];
   onToggleComplete: (task: Task) => void;
   onEdit: (task: Task) => void;
   onDelete: (id: string) => void;
 }
 
-export default function TaskList({ tasks, onToggleComplete, onEdit, onDelete }: TaskListProps) {
+export default function TaskList({ userTasks, onToggleComplete, onEdit, onDelete }: TaskListProps) {
   const getPriorityColor = (priority: Task['priority']) => {
     switch (priority) {
       case 'High': return 'bg-red-100 text-red-700 border-red-200';
@@ -19,7 +19,7 @@ export default function TaskList({ tasks, onToggleComplete, onEdit, onDelete }: 
     }
   };
 
-  if (tasks.length === 0) {
+  if (userTasks.length === 0) {
     return (
       <div className="bg-white rounded-xl shadow-lg p-12 text-center">
         <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -33,18 +33,18 @@ export default function TaskList({ tasks, onToggleComplete, onEdit, onDelete }: 
 
   return (
     <div className="space-y-4">
-      {tasks.map((task) => (
+      {userTasks.map((userTask) => (
         <div
-          key={task.id}
+          key={userTask.id}
           className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition duration-200"
         >
           <div className="flex items-start justify-between">
             <div className="flex items-start space-x-4 flex-1">
               <button
-                onClick={() => onToggleComplete(task)}
+                onClick={() => onToggleComplete(userTask)}
                 className="mt-1 flex-shrink-0"
               >
-                {task.completed ? (
+                {userTask.completed ? (
                   <CheckCircle2 className="w-6 h-6 text-green-500" />
                 ) : (
                   <Circle className="w-6 h-6 text-gray-300 hover:text-gray-400" />
@@ -52,17 +52,17 @@ export default function TaskList({ tasks, onToggleComplete, onEdit, onDelete }: 
               </button>
               
               <div className="flex-1">
-                <h3 className={`text-lg font-semibold ${task.completed ? 'line-through text-gray-400' : 'text-gray-800'}`}>
-                  {task.title}
+                <h3 className={`text-lg font-semibold ${userTask.completed ? 'line-through text-gray-400' : 'text-gray-800'}`}>
+                  {userTask.title}
                 </h3>
-                {task.description && (
-                  <p className={`mt-2 text-sm ${task.completed ? 'line-through text-gray-400' : 'text-gray-600'}`}>
-                    {task.description}
+                {userTask.description && (
+                  <p className={`mt-2 text-sm ${userTask.completed ? 'line-through text-gray-400' : 'text-gray-600'}`}>
+                    {userTask.description}
                   </p>
                 )}
                 <div className="mt-3">
-                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold border ${getPriorityColor(task.priority)}`}>
-                    {task.priority} Priority
+                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold border ${getPriorityColor(userTask.priority)}`}>
+                    {userTask.priority} Priority
                   </span>
                 </div>
               </div>
@@ -70,13 +70,13 @@ export default function TaskList({ tasks, onToggleComplete, onEdit, onDelete }: 
 
             <div className="flex items-center space-x-2 ml-4">
               <button
-                onClick={() => onEdit(task)}
+                onClick={() => onEdit(userTask)}
                 className="p-2 hover:bg-indigo-50 rounded-lg transition duration-200 text-indigo-600"
               >
                 <Edit className="w-5 h-5" />
               </button>
               <button
-                onClick={() => onDelete(task.id)}
+                onClick={() => onDelete(userTask.id)}
                 className="p-2 hover:bg-red-50 rounded-lg transition duration-200 text-red-600"
               >
                 <Trash2 className="w-5 h-5" />
