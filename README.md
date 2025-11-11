@@ -123,14 +123,9 @@ https://firebase-task-manager-qpd6.vercel.app/login
 
 [https://github.com/muhetopeace/Firebase-Task-Manager-](https://github.com/muhetopeace/Firebase-Task-Manager)
 
-> 7 commits included: 
-> - 'initial commit'
-> - ``
-> - `feat: add Firestore CRUD operations`
-> - `fix: resolve email case sensitivity in queries`
-> - `style: improve UI with Tailwind and Lucide`
+> 8 commits  
 
----
+
 
 ## Assignment Compliance
 
@@ -143,7 +138,7 @@ https://firebase-task-manager-qpd6.vercel.app/login
 | Personalized Greeting             | Yes |
 | Firestore `tasks` Collection      | Yes |
 | TypeScript Interface              | Yes |
-| 10+ Git Commits                   | 7 commit |
+| 10+ Git Commits                   | 8 commit |
 | Deployed on Vercel                | Yes |
 | Demo Account with Tasks           | Yes |
 | README with All Sections          | Yes |
