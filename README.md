@@ -1,40 +1,158 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Firebase CRUD Task App
 
-First, run the development server:
+A secure **Task Management Application** built with **Next.js 14 (App Router)**, **TypeScript**, **Firebase Authentication**, and **Firestore**. Users can register, log in, and manage personal tasks with full **CRUD functionality** — all data is private to the logged-in user.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+> **Live Demo**: (https://firebase-task-manager-qpd6.vercel.app/login) 
+
+---
+
+## Features
+
+- **Firebase Email/Password Authentication**
+- **Protected Routes** – Only logged-in users can access the dashboard
+- **Personalized Greeting** – "Hello, user@example.com"
+- **Task CRUD Operations**:
+  - Create tasks with title, description, and priority
+  - View all personal tasks
+  - Toggle task completion
+  - Edit existing tasks
+  - Delete tasks permanently
+- **Realtime Firestore Sync**
+- **Responsive & Modern UI** with Tailwind CSS and Lucide icons
+
+---
+
+## Technologies Used
+
+| Technology        | Purpose |
+|-------------------|--------|
+| **Next.js 14**    | App Router, Server Components, SSR |
+| **TypeScript**    | Type-safe development |
+| **Firebase Auth** | User registration & login |
+| **Firestore**     | NoSQL database for tasks |
+| **Tailwind CSS**  | Styling |
+| **Lucide React**  | Beautiful icons |
+| **Vercel**        | Deployment |
+
+---
+
+## Project Structure
+
+```
+app/
+├── login/page.tsx          → Login page
+├── register/page.tsx       → Registration page
+├── page.tsx                → Dashboard (protected)
+├── components/
+│   ├── TaskForm.tsx        → Add/Edit form
+│   ├── TaskList.tsx        → Task display & actions
+│   └── ProtectedRoute.tsx  → Auth guard
+├── lib/
+│   ├── firebase.ts         → Firebase config
+│   └── taskService.ts      → CRUD helpers
+├── types/task.ts           → Task interface
+└── context/AuthContext.tsx → Global auth state
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Setup Instructions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/muhetopeace/Firebase-Task-Manager-.git
+cd firebase-task-app
+```
 
-## Learn More
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Configure Firebase
+Create a `.env.local` file in the root:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=123456789
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> Get these values from your [Firebase Console](https://console.firebase.google.com/)
 
-## Deploy on Vercel
+### 4. Run Locally
+```bash
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Open [http://localhost:3000](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# Firebase-Task-Manager-
->>>>>>> 8654e5d8aefd55921443cb732444104beb6d21a6
+---
+
+## Demo Account (For Grading)
+
+> **Use this account to test the app**
+
+```
+Email:    muhetobpeace@gmail.com
+Password: test1234
+```
+
+> This user has **2 pre-created tasks** in Firestore for demonstration.
+
+---
+
+## Screenshots
+
+
+
+## Deployment
+
+Deployed on **Vercel**:
+https://firebase-task-manager-qpd6.vercel.app/login
+
+> Automatically deploys on every push to `main`
+
+---
+
+## GitHub Repository
+
+[https://github.com/muhetopeace/Firebase-Task-Manager-](https://github.com/muhetopeace/Firebase-Task-Manager)
+
+> 7 commits included: 
+> - 'initial commit'
+> - ``
+> - `feat: add Firestore CRUD operations`
+> - `fix: resolve email case sensitivity in queries`
+> - `style: improve UI with Tailwind and Lucide`
+
+---
+
+## Assignment Compliance
+
+| Requirement                        | Done |
+|-----------------------------------|--------|
+| Firebase Auth (Register/Login)    | Yes |
+| Protected Dashboard Route         | Yes |
+| CRUD Operations                   | Yes |
+| Task Model with `userEmail`       | Yes |
+| Personalized Greeting             | Yes |
+| Firestore `tasks` Collection      | Yes |
+| TypeScript Interface              | Yes |
+| 10+ Git Commits                   | 7 commit |
+| Deployed on Vercel                | Yes |
+| Demo Account with Tasks           | Yes |
+| README with All Sections          | Yes |
+
+---
+
+## Author
+
+**Peace B**  
+Kigali, Rwanda  
+November 11, 2025
+
